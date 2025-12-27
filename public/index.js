@@ -21,6 +21,7 @@ function Spa() {
           <Route path="/withdraw/" component={Withdraw} />
           <Route path="/balance/" component={Balance} />
           <Route path="/allData/" component={AllData} />
+          <Route path="/about/" component={About} />
         </div>
         </UserContext.Provider>
       </div>

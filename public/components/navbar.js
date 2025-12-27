@@ -29,6 +29,10 @@ function Navbar() {
             <a className="nav-link" href="#/allData/">All Data</a>
           </li>
 
+          <li className="nav-item">
+            <a className="nav-link" href="#/about/">About</a>
+          </li>
+
         </ul>
       </div>
     </nav>
