@@ -1,3 +1,150 @@
+/* ============================================
+   CSS CUSTOM PROPERTIES FOR THEME SWITCHING
+   ============================================ */
+
+:root {
+  /* Transition settings */
+  --transition-duration: 0.3s;
+  --transition-timing: ease;
+
+  /* Light mode colors (default) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --border-color: #dee2e6;
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #ced4da;
+}
+
+[data-theme="dark"] {
+  /* Dark mode colors - inverted greys/blacks/whites */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #e9ecef;
+  --text-secondary: #adb5bd;
+  --border-color: #495057;
+  --card-bg: #2d2d2d;
+  --input-bg: #343a40;
+  --input-border: #495057;
+}
+
+/* ============================================
+   BASE ELEMENT STYLING
+   ============================================ */
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color var(--transition-duration) var(--transition-timing),
+              color var(--transition-duration) var(--transition-timing);
+}
+
+/* ============================================
+   CARD OVERRIDES
+   ============================================ */
+
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  transition: background-color var(--transition-duration) var(--transition-timing),
+              border-color var(--transition-duration) var(--transition-timing);
+}
+
+.card-body {
+  color: var(--text-primary);
+  transition: color var(--transition-duration) var(--transition-timing);
+}
+
+.card-text {
+  color: var(--text-primary);
+}
+
+/* ============================================
+   FORM CONTROLS
+   ============================================ */
+
+[data-theme="dark"] .form-control {
+  background-color: var(--input-bg);
+  border-color: var(--input-border);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-control:focus {
+  background-color: var(--input-bg);
+  color: var(--text-primary);
+  border-color: #80bdff;
+}
+
+[data-theme="dark"] .form-control::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* ============================================
+   NAVBAR OVERRIDES
+   ============================================ */
+
+[data-theme="dark"] .navbar {
+  background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .navbar-dark .navbar-brand,
+[data-theme="dark"] .navbar-dark .nav-link {
+  color: var(--text-primary) !important;
+}
+
+/* ============================================
+   BOOTSTRAP COLOR UTILITY OVERRIDES
+   (Only override greyscale, keep colors unchanged)
+   ============================================ */
+
+[data-theme="dark"] .bg-light {
+  background-color: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .text-black {
+  color: var(--text-primary) !important;
+}
+
+/* ============================================
+   BUTTON SHADOW ADJUSTMENTS FOR DARK MODE
+   ============================================ */
+
+[data-theme="dark"] .btn-primary,
+[data-theme="dark"] .btn-success,
+[data-theme="dark"] .btn-warning,
+[data-theme="dark"] .btn-danger {
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .btn-primary:hover,
+[data-theme="dark"] .btn-success:hover,
+[data-theme="dark"] .btn-warning:hover,
+[data-theme="dark"] .btn-danger:hover {
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   LIST STYLING (for All Data page)
+   ============================================ */
+
+[data-theme="dark"] ul,
+[data-theme="dark"] li {
+  color: var(--text-primary);
+}
+
+/* ============================================
+   GLOSSY BUTTON STYLES
+   ============================================ */
+
 /* Glossy Button Styles */
 .btn-primary,
 .btn-success,
@@ -15,7 +162,7 @@
     0 4px 8px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
     inset 0 -2px 3px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  transition: all var(--transition-duration) var(--transition-timing);
 }
 
 .btn-primary {

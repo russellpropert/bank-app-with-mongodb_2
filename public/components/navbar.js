@@ -1,6 +1,9 @@
 function Navbar() {
+  const { theme, toggleTheme } = React.useContext(ThemeContext);
+  const navbarThemeClass = theme === 'light' ? 'navbar-light' : 'navbar-dark';
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className={`navbar navbar-expand-lg ${navbarThemeClass} bg-light`}>
       <a className="navbar-brand" href="#/">Bank App</a>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -34,6 +37,14 @@ function Navbar() {
           </li>
 
         </ul>
+        <button
+          className="btn btn-outline-secondary btn-sm"
+          onClick={toggleTheme}
+          aria-label="Toggle dark mode"
+          style={{marginLeft: 'auto'}}
+        >
+          {theme === 'light' ? '🌙' : '☀️'}
+        </button>
       </div>
     </nav>
   );
