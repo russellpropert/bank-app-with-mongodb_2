@@ -1,5 +1,5 @@
 function Login(props) {
-  const context = React.useContext(UserContext);
+  const context = React.useContext(AuthContext);
   
   const formElements = ['email', 'password', 'button'];
   const bgcolor = 'danger';

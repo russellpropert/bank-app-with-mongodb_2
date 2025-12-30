@@ -4,7 +4,7 @@ function Form(props) {
   const [password, setPassword] = React.useState('');
   const [amount, setAmount] = React.useState('');
   const [errorMessage, setErrorMessage] = React.useState('');
-  const context = React.useContext(UserContext);
+  const context = React.useContext(AuthContext);
 
   const background = props.bgcolor ? ` btn-${props.bgcolor}` : ' btn-primary';
   const buttonClass = `btn${background}`;
@@ -59,16 +59,10 @@ function Form(props) {
         break;
       
       case 'Login':
-        get(`/account/login/${email}`)
-          .then((user) => {
-            // authenticate
-            let userPassword;
-            user ? userPassword = user.password : userPassword = false;
-            if (userPassword === password) {
-              context.setCurrentUser(user._id);
-            } else {
-              setErrorMessage('The email and password combination is incorrect');
-              return;
+        context.login(email, password)
+          .then((result) => {
+            if (!result.success) {
+              setErrorMessage(result.error);
             }
           });
         break;

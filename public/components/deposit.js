@@ -1,6 +1,6 @@
 function Deposit() {
   const [showForm, setShowForm] = React.useState({form: true, balance: null});
-  const context = React.useContext(UserContext);
+  const context = React.useContext(AuthContext);
 
   const formElements = ['amount', 'button'];
   const bgcolor = 'success';

@@ -1,5 +1,5 @@
 function FormMessage(props) {
-  const context = React.useContext(UserContext);
+  const context = React.useContext(AuthContext);
 
   const background = props.bgcolor ? ` btn-${props.bgcolor}` : ' btn-primary';
   const buttonClass = `btn${background}`;
@@ -14,8 +14,7 @@ function FormMessage(props) {
         props.setShowForm({form: true, balance: null})
         break;
       case 'Login':
-        console.log('test');
-        context.setCurrentUser(null);
+        context.logout();
         break;
     }
   }

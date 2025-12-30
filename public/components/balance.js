@@ -1,6 +1,6 @@
 function Balance() {
   const [balance, setBalance] = React.useState(null);
-  const context = React.useContext(UserContext);
+  const context = React.useContext(AuthContext);
 
   // get user and set balance
   React.useEffect(() => {
