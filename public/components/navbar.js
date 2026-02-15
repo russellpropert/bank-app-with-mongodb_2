@@ -37,14 +37,16 @@ function Navbar() {
           </li>
 
         </ul>
-        <button
-          className="btn btn-outline-secondary btn-sm"
-          onClick={toggleTheme}
-          aria-label="Toggle dark mode"
-          style={{marginLeft: 'auto'}}
-        >
-          {theme === 'light' ? '🌙' : '☀️'}
-        </button>
+        <div className="d-flex align-items-center ms-auto" style={{gap: '0.75rem'}}>
+          <button
+            className="btn btn-outline-secondary btn-sm"
+            onClick={toggleTheme}
+            aria-label="Toggle dark mode"
+          >
+            {theme === 'light' ? '🌙' : '☀️'}
+          </button>
+          <AccountIcon />
+        </div>
       </div>
     </nav>
   );

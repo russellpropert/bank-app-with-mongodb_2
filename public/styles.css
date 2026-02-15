@@ -142,6 +142,90 @@ body {
 }
 
 /* ============================================
+   ACCOUNT ICON
+   ============================================ */
+
+.account-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0b5ed7 0%, #084298 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  font: inherit;
+  transition: transform var(--transition-duration) var(--transition-timing),
+              box-shadow var(--transition-duration) var(--transition-timing);
+  animation: accountIconFadeIn 0.3s ease;
+}
+
+.account-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0.125rem 0.5rem rgba(13, 110, 253, 0.4);
+}
+
+.account-icon:focus-visible {
+  outline: 0.125rem solid #0d6efd;
+  outline-offset: 0.125rem;
+}
+
+.account-icon-initial {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+  user-select: none;
+}
+
+.account-icon-login-link {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  padding: 0.375rem 0.75rem;
+  border: 0.0625rem solid var(--border-color);
+  border-radius: 1.25rem;
+  transition: color var(--transition-duration) var(--transition-timing),
+              border-color var(--transition-duration) var(--transition-timing),
+              background-color var(--transition-duration) var(--transition-timing);
+  animation: accountIconFadeIn 0.3s ease;
+}
+
+.account-icon-login-link:hover {
+  color: #0d6efd;
+  border-color: #0d6efd;
+  background-color: rgba(13, 110, 253, 0.08);
+}
+
+.account-icon-login-link:focus-visible {
+  outline: 0.125rem solid #0d6efd;
+  outline-offset: 0.125rem;
+}
+
+[data-theme="dark"] .account-icon-login-link:hover {
+  background-color: rgba(13, 110, 253, 0.15);
+}
+
+@keyframes accountIconFadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .account-icon,
+  .account-icon-login-link {
+    animation: none;
+  }
+
+  .account-icon:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
    GLOSSY BUTTON STYLES
    ============================================ */
 
